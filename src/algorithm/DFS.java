@@ -1,6 +1,5 @@
 package algorithm;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -19,13 +18,15 @@ public class DFS {
 			nodes[i] = new Node(inputValue);	
 		}
 		
-		Stack<State> queue = new Stack<State>();
+		Stack<State> stack = new Stack<State>();
 		boolean[] isVisited = new boolean[N];
 		int startIndex = 0;
 		int endIndex = N - 1;
-		
-		while (!queue.isEmpty()) {
-			State currState = queue.pop();
+
+		stack.push(new State(startIndex, nodes[startIndex].value));
+
+		while (!stack.isEmpty()) {
+			State currState = stack.pop();
 			
 			int currIndex = currState.currIndex;
 			int currInfo = currState.currInfo;
@@ -33,7 +34,7 @@ public class DFS {
 			for (int nextIndex = 0; nextIndex < N; nextIndex++) {
 				if (!isVisited[nextIndex]) {
 					isVisited[nextIndex] = true;	
-					queue.push(new State(nextIndex, currInfo + nodes[currIndex].value));
+					stack.push(new State(nextIndex, currInfo + nodes[currIndex].value));
 				}
 			}
 		}

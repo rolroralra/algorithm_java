@@ -23,7 +23,9 @@ public class BFS {
 		boolean[] isVisited = new boolean[N];
 		int startIndex = 0;
 		int endIndex = N - 1;
-		
+
+		queue.add(new State(startIndex, nodes[startIndex].value));
+
 		while (!queue.isEmpty()) {
 			State currState = queue.poll();
 			
