@@ -2,6 +2,7 @@
 Reference to "http://jungol.co.kr/"
 
 # Git Proxy Setting
+```bash
 $ vi ~/.gitconfig
 [user]
 	name = rolroralra
@@ -20,3 +21,4 @@ $ vi ~/.gitconfig
 	required = true
 [core]
 	autocrlf = true
+```
