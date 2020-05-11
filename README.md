@@ -5,7 +5,7 @@ Reference to "http://jungol.co.kr/"
 - 정올 - "http://jungol.co.kr/"
 - 백준 - "https://www.acmicpc.net/"
 - "https://koitp.org/"
-
+- "삼성 SDS Professional 대비 문제풀이반" https://koitp.org/category/SDS_PRO_201609/
 ---
 # Graph
 
