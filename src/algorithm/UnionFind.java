@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class UnionFind {
 	public static int[] parent;
-	public static int[] rank;		// rank 및 depth 이용해서 하는 개선 알고리즘도 있다고 함... 나중에 조사해보자.
+	public static int[] rank;		// TODO: rank 및 depth 이용해서 하는 개선 알고리즘도 있다고 함... 나중에 조사해보자.
 	public static int VertexCnt;	// Vertex 총 개수
 	public static void main(String[] args) {
 		VertexCnt = 10;
