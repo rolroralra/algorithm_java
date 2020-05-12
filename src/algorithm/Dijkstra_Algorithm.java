@@ -44,29 +44,34 @@ public class Dijkstra_Algorithm {
                     prevIndex[nextIndex] = currIndex;
                 }
             }
+        }
+        
+        // 추가: 최소 경로 길이에 해당하는 path 경로 구하는 과정
+        Stack<Integer> stack = new Stack<>();
+        int index = endIndex;
+        while (index != -1) {
+            stack.push(index);
+            index = prevIndex[index];
+        }
 
-            Stack<Integer> stack = new Stack<>();
-            int index = endIndex;
-            while (index != -1) {
-                stack.push(index);
-                index = prevIndex[index];
-            }
-
-            List<Integer> pathIndexList = new ArrayList<>();
-            while (!stack.isEmpty()) {
-                pathIndexList.add(stack.pop());
-            }
-
+        List<Integer> pathIndexList = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            pathIndexList.add(stack.pop());
         }
     }
 
-    static class Vertex {
+    static class Vertex implements Comparable<Vertex>{
         int index;
         int distance;
 
         public Vertex(int index, int distance) {
             this.index = index;
             this.distance = distance;
+        }
+        
+        @Override
+        public int compareTo(Vertex o) {
+            return this.distance == o.distance ? this.index - o.index: this.distance - o.distance;
         }
     }
 }
