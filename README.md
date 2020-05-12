@@ -85,17 +85,47 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
  
 ### Degree
 
-
+---
 
 ### BFS
+
+---
 ### DFS
+
+---
 ### Backtracking
+
+---
 ### Greedy Algorithm
+
+---
 ### Divide & Conquer
+
+---
+### Dynamic Programming (DP)
+
+### LIS (Longest Increasing Sequence)
+### LCS (Longest Common String)
+### LCA (Longest Common Ancestor)
+
+---
+
+### Binary Index Tree
+### Segment Tree
+### Fenwick Tree
+
+---
+
+# 최단 경로 구하는 알고리즘 (the shortest path problem)
+1. single source & single destination  (distance)
+2. single source (distance[i] : c0 --> i) --> dijkstra algorithm, bellman ford
+3. single destination (distance[i] : i --> c0)   
+4. all pairs (distnace[i][j] : i--> j)  --> floyd-warshall
 
 ### Dijkstra
 ### Bellman-Ford
 ### Floyd-Warshall
+
 ### Union Find (Disjoin Set)
 ### Topology Sort
 
@@ -103,12 +133,8 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 1. Kruskal Algorithm
 2. Prim's Algorithm
 
+---
 
-# 최단 경로 구하는 알고리즘 (the shortest path problem)
-1. single source & single destination  (distance)
-2. single source (distance[i] : c0 --> i) --> dijkstra algorithm, bellman ford
-3. single destination (distance[i] : i --> c0)   
-4. all pairs (distnace[i][j] : i--> j)  --> floyd-warshall
 
 
 # Day-01
@@ -122,6 +148,8 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 - 기출P-0023 운동하자       -- DP
 - 기출P-0054 자동차 여행    -- DP
 - 기출P-0017 직사각형 개수세기 -- DP
+
+---
 
 # Git Proxy Setting
 ```bash
