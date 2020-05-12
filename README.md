@@ -4,7 +4,7 @@ Reference to "http://jungol.co.kr/"
 # 문제 Web Site
 - 정올 - "http://jungol.co.kr/"
 - 백준 - "https://www.acmicpc.net/"
-- "https://koitp.org/"
+- "삼성SDS SW검정 프로 교육" -- "https://koitp.org/"
 - "삼성 SDS Professional 대비 문제풀이반" https://koitp.org/category/SDS_PRO_201609/
 ---
 # Graph
@@ -84,6 +84,44 @@ A simple cycle is a cycle from v to v with no repeated vertices except for v.
 An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
  
 ### Degree
+
+
+
+### BFS
+### DFS
+### Backtracking
+### Greedy Algorithm
+### Divide & Conquer
+
+### Dijkstra
+### Bellman-Ford
+### Floyd-Warshall
+### Union Find (Disjoin Set)
+### Topology Sort
+
+### MST 구현 (Minimal Spanning Tree)
+1. Kruskal Algorithm
+2. Prim's Algorithm
+
+
+# 최단 경로 구하는 알고리즘 (the shortest path problem)
+1. single source & single destination  (distance)
+2. single source (distance[i] : c0 --> i) --> dijkstra algorithm, bellman ford
+3. single destination (distance[i] : i --> c0)   
+4. all pairs (distnace[i][j] : i--> j)  --> floyd-warshall
+
+
+# Day-01
+- 기출P-0063 Pac Man
+- 기출P-0042 배제쌍
+- 기출P-0034 팀짜기
+- 기출P-0067 가장 큰 최단 경로
+
+# Day-02
+- 교육P-0035 이진 탐색2     -- DP
+- 기출P-0023 운동하자       -- DP
+- 기출P-0054 자동차 여행    -- DP
+- 기출P-0017 직사각형 개수세기 -- DP
 
 # Git Proxy Setting
 ```bash
