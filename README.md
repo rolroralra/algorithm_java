@@ -128,6 +128,10 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 
 ### Union Find (Disjoin Set)
 ### Topology Sort
+1. DFS로 구현
+2. BFS with indgree 로 구현 
+- https://m.blog.naver.com/PostView.nhn?blogId=xowns4817&logNo=221080426768&proxyReferer=https:%2F%2Fwww.google.com%2F
+- https://jason9319.tistory.com/93
 
 ### MST 구현 (Minimal Spanning Tree)
 1. Kruskal Algorithm
