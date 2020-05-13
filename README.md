@@ -118,8 +118,9 @@ https://dyngina.tistory.com/14
 ### Segment Tree
 https://www.acmicpc.net/blog/view/9
 
+
 ### Fenwick Tree
-https://www.crocus.co.kr/666
+https://www.acmicpc.net/blog/view/21
 
 ---
 
