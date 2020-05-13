@@ -105,14 +105,21 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 ### Dynamic Programming (DP)
 
 ### LIS (Longest Increasing Sequence)
+https://dyngina.tistory.com/16
+
 ### LCS (Longest Common String)
 ### LCA (Longest Common Ancestor)
 
 ---
 
 ### Binary Index Tree
+https://dyngina.tistory.com/14
+
 ### Segment Tree
+https://www.acmicpc.net/blog/view/9
+
 ### Fenwick Tree
+https://www.crocus.co.kr/666
 
 ---
 
@@ -123,10 +130,17 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 4. all pairs (distnace[i][j] : i--> j)  --> floyd-warshall
 
 ### Dijkstra
+https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
+
 ### Bellman-Ford
+https://ko.wikipedia.org/wiki/%EB%B2%A8%EB%A8%BC-%ED%8F%AC%EB%93%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
+
 ### Floyd-Warshall
+https://ko.wikipedia.org/wiki/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%9B%8C%EC%85%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
 
 ### Union Find (Disjoin Set)
+https://ko.wikipedia.org/wiki/%EC%84%9C%EB%A1%9C%EC%86%8C_%EC%A7%91%ED%95%A9_%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0
+
 ### Topology Sort
 1. DFS로 구현
 2. BFS with indgree 로 구현 
