@@ -108,6 +108,7 @@ An Euler cycle is a cycle in a graph that includes all vertices and edges of G.
 https://dyngina.tistory.com/16
 
 ### LCS (Longest Common String)
+
 ### LCA (Longest Common Ancestor)
 
 ---
@@ -152,6 +153,9 @@ https://ko.wikipedia.org/wiki/%EC%84%9C%EB%A1%9C%EC%86%8C_%EC%A7%91%ED%95%A9_%EC
 1. Kruskal Algorithm
 2. Prim's Algorithm
 
+## 단절점, 단절선 (Articulation Point, Articulation Edge)
+https://bowbowbow.tistory.com/3
+
 ---
 
 
@@ -167,6 +171,18 @@ https://ko.wikipedia.org/wiki/%EC%84%9C%EB%A1%9C%EC%86%8C_%EC%A7%91%ED%95%A9_%EC
 - 기출P-0023 운동하자       -- DP
 - 기출P-0054 자동차 여행    -- DP
 - 기출P-0017 직사각형 개수세기 -- DP
+
+# Day-03
+- 기출P-0036 워드프로세서 고장     -- DP
+- 기출P-0048 도둑잡기             -- 위상정렬 (Topology Sort)
+- 기출P-0050 모든 쌍의 최단경로    -- Graph, 사이클 찾기
+- 사전A-0032 타일 붙이기          -- 경우의 수, DP     (과제!!)
+
+# Day-04
+- 기출P-0038 키컸으면    -- 구간트리 (Segment Tree)
+- 기출P-0056 수열지우기  -- LIS (Longest Increasing Subsequence)
+- 연습P-0025 등산        -- Parametric Search (Binary Search)
+- 기출P-0007 팀 구성     -- DP
 
 ---
 
