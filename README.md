@@ -185,11 +185,11 @@ https://bowbowbow.tistory.com/3
 - 기출P-0007 팀 구성     -- DP
 
 # Day-05
-기출P-0058 탱크         -- 구간트리
-기출P-0065 Shields Up!  -- Dijkstra, 위상정렬
-기출P-0039 개미 굴 파기  -- MST 최소신장트리
+- 기출P-0058 탱크         -- 구간트리
+- 기출P-0065 Shields Up!  -- Dijkstra, 위상정렬
+- 기출P-0039 개미 굴 파기  -- MST 최소신장트리
       (1. Prim's 2. Kruskal), LCA(Lowest Common Ancesotr), 단절점 단절선
-기출P-0018 종이컵 전화기 -- DP
+- 기출P-0018 종이컵 전화기 -- DP
 
 ---
 
