@@ -21,6 +21,7 @@ public class Solution {
         System.setIn(Solution.class.getResourceAsStream("sample_input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st = null;
         int T = Integer.parseInt(br.readLine().trim());
         for (int test_case = 1; test_case <= T; test_case++) {
@@ -33,9 +34,9 @@ public class Solution {
 
 
             System.out.println("#" + test_case + " " + result);
+//            sb.append("#" + test_case + " " + result + '\n');
         }
-
-
+//        System.out.println(sb.toString());
     }
 }
 
