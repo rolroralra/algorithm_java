@@ -7,6 +7,41 @@ Reference to "http://jungol.co.kr/"
 - "삼성SDS SW검정 프로 교육" -- "https://koitp.org/"
 - "삼성 SDS Professional 대비 문제풀이반" https://koitp.org/category/SDS_PRO_201609/
 ---
+## Sample Code for Java
+```java
+package problem;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws Exception {
+        System.setIn(Solution.class.getResourceAsStream("sample_input.txt"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = null;
+        int T = Integer.parseInt(br.readLine().trim());
+        for (int test_case = 1; test_case <= T; test_case++) {
+            int result = 0;
+
+            /*****************
+             * Solution Code *
+             *****************/
+
+
+
+            System.out.println("#" + test_case + " " + result);
+        }
+
+
+    }
+}
+
+```
+
+---
 # Graph
 
 ### Graph
