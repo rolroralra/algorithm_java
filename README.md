@@ -97,7 +97,7 @@ public class Solution {
 
 ## Path
 > A path from v0 to vn of length n\
-> (v0, e1, v1, e2, v2, ..., en-1, vn)\
+> (v0, e1, v1, e2, v2, ..., en-1, vn)
 
 > Alternating sequence of V, E
 
