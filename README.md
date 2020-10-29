@@ -1,6 +1,11 @@
 # jungol
 Reference to "http://jungol.co.kr/"
+---
+## TODO
+- [ ] Topology Sort
+- [ ] Articulation Point & Edge
 
+---
 # 문제 Web Site
 - 정올 - "http://jungol.co.kr/"
 - 백준 - "https://www.acmicpc.net/"
