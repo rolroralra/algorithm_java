@@ -13,23 +13,23 @@ public class ArticulationPoint {
         dfs(0, true);
     }
 
-    static int dfs(int A, boolean isRoot){
-        visited[A]= ++visitedCount;
+    static int dfs(int currNode, boolean isRoot){
+        visited[currNode]= ++visitedCount;
 
-        int returnValue = visited[A];
+        int returnValue = visited[currNode];
 
-        int childCount=0;
+        int spanningTreeChildCount=0;
         //정점 A가 루트 노드 일 경우를 대비해서 DFS스패닝 트리에서의 자식 수 세어준다.
-        for(int i = 0 ; i< (int)graph[A].size() ; i++){
-            int next = graph[A].get(i);
+        for(int i = 0 ; i< (int)graph[currNode].size() ; i++){
+            int next = graph[currNode].get(i);
 
             if(visited[next] == 0){
-                childCount++;
+                spanningTreeChildCount++;
 
                 //low : 정점 A의 자식 노드가 갈 수 있는 노드중 가장 일찍 방문한 노드
                 int low = dfs(next, false);
-                if(!isRoot && low >= visited[A]) {
-                    isCutVertex[A] = true;
+                if(!isRoot && low >= visited[currNode]) {
+                    isCutVertex[currNode] = true;
                 }
 
                 returnValue = Math.min(returnValue, low);
@@ -40,7 +40,7 @@ public class ArticulationPoint {
         }
 
         if(isRoot) {
-            isCutVertex[A] = (childCount >=2);
+            isCutVertex[currNode] = (spanningTreeChildCount >= 2);
         }
 
         return returnValue;
