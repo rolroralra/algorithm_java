@@ -18,11 +18,16 @@ package problem;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.util.StringTokenizer;
 
 public class Solution {
 
     public static void main(String[] args) throws Exception {
+        long START_TIMESTAMP = System.currentTimeMillis();
+
+        System.setIn(Solution.class.getResourceAsStream("sample_input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         StringBuilder sb = new StringBuilder();
@@ -40,6 +45,13 @@ public class Solution {
             System.out.println("#" + test_case + " " + result);
 //            sb.append("#" + test_case + " " + result + '\n');
         }
+
+
+        long END_TIMESTAMP = System.currentTimeMillis();
+        MemoryMXBean mxBean = ManagementFactory.getMemoryMXBean();
+        System.out.println("Spend Time: " + (END_TIMESTAMP - START_TIMESTAMP) + " ms");
+        System.out.println("Usage Heap Memory: " + mxBean.getHeapMemoryUsage().getUsed() / 1024  + " KB");
+
 //        System.out.println(sb.toString());
     }
 }
