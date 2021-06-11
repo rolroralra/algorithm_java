@@ -16,9 +16,8 @@ public class SegmentTree {
 
         this.originDataSize = originDataSize;
 
-        this.segmentTreeSize = 1;
-        for (; segmentTreeSize < originDataSize; this.segmentTreeSize <<= 1);
-        this.segmentTreeSize = (this.segmentTreeSize << 1) | 01;
+        for (segmentTreeSize = 1; segmentTreeSize < originDataSize; this.segmentTreeSize <<= 1);
+        this.segmentTreeSize = (this.segmentTreeSize << 1) - 1;
 
         this.segmentTree = new int[this.segmentTreeSize];
     }
