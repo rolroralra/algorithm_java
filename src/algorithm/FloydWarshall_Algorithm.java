@@ -37,22 +37,21 @@ public class FloydWarshall_Algorithm {
 
         for (int k = 0; k < N; k++) {
             for (int i = 0; i < N; i++) {
-                if (adjMatrix[i][k] == Integer.MAX_VALUE) {
+                if (distance[i][k] == Integer.MAX_VALUE) {
                     continue;
                 }
+
                 for (int j = 0; j < N; j++) {
-                    if (adjMatrix[k][j] == Integer.MAX_VALUE) {
+                    if (distance[k][j] == Integer.MAX_VALUE) {
                         continue;
                     }
 
-
                     // Relaxation Procedure
-                    int newDistance = adjMatrix[i][k] + adjMatrix[k][j];
-                    if (newDistance < adjMatrix[i][j]) {
-                        adjMatrix[i][j] = newDistance;
+                    int newDistance = distance[i][k] + distance[k][j];
+                    if (newDistance < distance[i][j]) {
+                        distance[i][j] = newDistance;
                         prevIndexOfDest[i][j] = prevIndexOfDest[k][j];
                     }
-
                 }
             }
         }
@@ -69,7 +68,7 @@ public class FloydWarshall_Algorithm {
         // Shortest Path by using F-W Algorithm
         Stack<Integer> stack = new Stack<>();
         stack.push(endIndex);
-        while (prevIndexOfDest[startIndex][stack.peek()] != UNVALID_INDEX) {
+        while (stack.peek() != startIndex) {
             stack.push(prevIndexOfDest[startIndex][stack.peek()]);
         }
 
