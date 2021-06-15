@@ -1,11 +1,12 @@
 package algorithm;
 
+import java.util.Objects;
 import java.util.function.BinaryOperator;
 
 public class SegmentTree<T> {
     private static final int rootNodeIndex = 0;
 
-    private final T[] segmentTree;
+    private final T[] tree;
     private final int originDataSize;
     private final BinaryOperator<T> operator;
 
@@ -28,7 +29,7 @@ public class SegmentTree<T> {
 
         segmentTreeSize = (segmentTreeSize << 1) - 1;
 
-        this.segmentTree = (T[]) new Object[segmentTreeSize];
+        this.tree = (T[]) new Object[segmentTreeSize];
     }
 
     public SegmentTree(T[] originDataArray, BinaryOperator<T> operator) throws Exception {
@@ -64,7 +65,7 @@ public class SegmentTree<T> {
         }
 
         if (nodeLeft == nodeRight) {
-            segmentTree[node] = value;
+            tree[node] = value;
             return;
         }
 
@@ -75,7 +76,12 @@ public class SegmentTree<T> {
         updateByValue(index, value,  leftNode, nodeLeft, nodeMid);
         updateByValue(index, value, rightNode, nodeMid + 1, nodeRight);
 
-        segmentTree[node] = operator.apply(segmentTree[leftNode], segmentTree[rightNode]);
+        if (Objects.nonNull(tree[leftNode]) && Objects.nonNull(tree[rightNode])) {
+            tree[node] = operator.apply(tree[leftNode], tree[rightNode]);
+        }
+        else if (Objects.nonNull(tree[leftNode])) {
+            tree[node] = tree[leftNode];
+        }
     }
 
     // left : left Index of Query Range
@@ -84,12 +90,16 @@ public class SegmentTree<T> {
         // [left, right] is not in [nodeLeft, nodeRight]
         if (left > nodeRight || right < nodeLeft) {
             return null;
+            // return 0;
+            // return Integer.MIN_VALUE;
         }
 
-        // [left ... [nodeLeft ... nodeRight] ... left]
+        // [left ... [nodeLeft ... nodeRight] ... right]
         if (left <= nodeLeft && nodeRight <= right) {
-            return this.segmentTree[node];
+            return this.tree[node];
         }
+
+        // [nodeleft ... left .. right .. nodeRight]
 
         // Divide & Conquer
         int nodeMid = (nodeLeft + nodeRight) >> 1;
@@ -99,13 +109,10 @@ public class SegmentTree<T> {
         T leftResult = query(left, right, leftNode, nodeLeft, nodeMid);
         T rightResult = query(left, right, rightNode, nodeMid + 1, nodeRight);
 
-        if (leftResult != null && rightResult != null) {
+        if (Objects.nonNull(leftResult) && Objects.nonNull(rightResult)) {
             return operator.apply(leftResult, rightResult);
         }
-        else if (leftResult == null && rightResult != null) {
-            return rightResult;
-        }
-        else if (leftResult != null && rightResult == null) {
+        else if (Objects.nonNull(leftResult)) {
             return leftResult;
         }
         else {
@@ -116,8 +123,9 @@ public class SegmentTree<T> {
     public static void main(String[] args) throws Exception {
         Integer[] arr = new Integer[]{1,2,3,4,5,6,7,8,9,10};
 //        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (left, right) -> Integer.sum(left == null ? 0 : left, right == null ? 0 : right));
-        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (left, right) -> Integer.max(left == null ? Integer.MIN_VALUE : left, right == null ? Integer.MIN_VALUE : right));
+//        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (left, right) -> Integer.max(left == null ? Integer.MIN_VALUE : left, right == null ? Integer.MIN_VALUE : right));
 
+        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, Integer::sum);
 
         System.out.println(segmentTree.query(0,3));
         segmentTree.update(0, 5);
