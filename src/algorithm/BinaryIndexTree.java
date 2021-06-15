@@ -6,7 +6,7 @@ import java.util.function.BinaryOperator;
 public class BinaryIndexTree<T> {
 	private static final int rootNodeIndex = 0;
 
-	private final T[] binaryIndexTree;
+	private final T[] tree;
 	private final int originDataSize;
 	private final BinaryOperator<T> operator;
 	private final int baseIndex;
@@ -31,7 +31,7 @@ public class BinaryIndexTree<T> {
 
 		segmentTreeSize = (segmentTreeSize << 1) - 1;
 
-		this.binaryIndexTree = (T[]) new Object[segmentTreeSize];
+		this.tree = (T[]) new Object[segmentTreeSize];
 	}
 
 	public BinaryIndexTree(T[] originData, BinaryOperator<T> operator) throws Exception {
@@ -46,28 +46,28 @@ public class BinaryIndexTree<T> {
 							", Current Data Size : " + this.originDataSize + ")");
 		}
 
-		System.arraycopy(originDataArray, 0, binaryIndexTree, baseIndex, originDataArray.length);
+		System.arraycopy(originDataArray, 0, tree, baseIndex, originDataArray.length);
 
 		for (int parent = baseIndex - 1; parent >= 0; parent--) {
 			int leftChild = parent * 2 + 1;
 			int rightChild = leftChild + 1;
 
-			if (Objects.isNull(binaryIndexTree[leftChild])) {
+			if (Objects.isNull(tree[leftChild])) {
 				continue;
 			}
 
-			if (Objects.isNull(binaryIndexTree[rightChild])) {
-				binaryIndexTree[parent] = binaryIndexTree[leftChild];
+			if (Objects.isNull(tree[rightChild])) {
+				tree[parent] = tree[leftChild];
 				continue;
 			}
 
-			binaryIndexTree[parent] = operator.apply(binaryIndexTree[leftChild], binaryIndexTree[rightChild]);
+			tree[parent] = operator.apply(tree[leftChild], tree[rightChild]);
 		}
 	}
 
 	public void update(int index, T value) {
 		int node = baseIndex + index;
-		binaryIndexTree[node] = value;
+		tree[node] = value;
 
 		while (node > rootNodeIndex) {
 			refresh(node);
@@ -83,12 +83,12 @@ public class BinaryIndexTree<T> {
 		int rightNode = baseIndex + right;
 		while (leftNode < rightNode) {
 			if (leftNode % 2 == 0) {
-				result = Objects.isNull(result) ? binaryIndexTree[leftNode] : operator.apply(result, binaryIndexTree[leftNode]);
+				result = Objects.isNull(result) ? tree[leftNode] : operator.apply(result, tree[leftNode]);
 				leftNode++;
 			}
 
 			if (rightNode % 2 == 1) {
-				result = Objects.isNull(result) ? binaryIndexTree[rightNode] : operator.apply(result, binaryIndexTree[rightNode]);
+				result = Objects.isNull(result) ? tree[rightNode] : operator.apply(result, tree[rightNode]);
 				rightNode--;
 			}
 
@@ -97,7 +97,7 @@ public class BinaryIndexTree<T> {
 		}
 
 		if (leftNode == rightNode) {
-			result = Objects.isNull(result) ? binaryIndexTree[leftNode] : operator.apply(result, binaryIndexTree[leftNode]);
+			result = Objects.isNull(result) ? tree[leftNode] : operator.apply(result, tree[leftNode]);
 		}
 
 		return result;
@@ -111,11 +111,10 @@ public class BinaryIndexTree<T> {
 		int leftChildNode = node * 2 + 1;
 		int rightChildNode = leftChildNode + 1;
 
-		binaryIndexTree[node] = operator.apply(binaryIndexTree[leftChildNode], binaryIndexTree[rightChildNode]);
+		tree[node] = operator.apply(tree[leftChildNode], tree[rightChildNode]);
 	}
 
 	public static void main(String[] args) throws Exception {
-
 		Integer[] array = new Integer[]{4, 5, 3, 6, 2};
 //		BinaryIndexTree<Integer> binaryIndexTree = new BinaryIndexTree<>(array, Integer::min);
 		BinaryIndexTree<Integer> binaryIndexTree = new BinaryIndexTree<>(array, Integer::max);
