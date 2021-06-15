@@ -35,6 +35,9 @@ public class FloydWarshall_Algorithm {
         }
 
 
+        // distance[i][j] : i -> j 최단거리
+        // prev[i][j] : i -> j로가는 최단경로에서 j 이전 꼭지점.
+
         for (int k = 0; k < N; k++) {
             for (int i = 0; i < N; i++) {
                 if (distance[i][k] == Integer.MAX_VALUE) {
@@ -64,11 +67,10 @@ public class FloydWarshall_Algorithm {
         // Shortest Path Length by using F-W Algorithm
         System.out.println(distance[startIndex][endIndex]);
 
-
         // Shortest Path by using F-W Algorithm
         Stack<Integer> stack = new Stack<>();
         stack.push(endIndex);
-        while (stack.peek() != startIndex) {
+        while (prevIndexOfDest[startIndex][stack.peek()] != UNVALID_INDEX) {
             stack.push(prevIndexOfDest[startIndex][stack.peek()]);
         }
 
