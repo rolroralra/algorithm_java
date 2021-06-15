@@ -82,6 +82,9 @@ public class SegmentTree<T> {
         else if (Objects.nonNull(tree[leftNode])) {
             tree[node] = tree[leftNode];
         }
+        else if (Objects.nonNull(tree[rightNode])) {
+            tree[node] = tree[rightNode];
+        }
     }
 
     // left : left Index of Query Range
@@ -99,8 +102,6 @@ public class SegmentTree<T> {
             return this.tree[node];
         }
 
-        // [nodeleft ... left .. right .. nodeRight]
-
         // Divide & Conquer
         int nodeMid = (nodeLeft + nodeRight) >> 1;
         int leftNode = (node << 1) + 1;
@@ -114,6 +115,9 @@ public class SegmentTree<T> {
         }
         else if (Objects.nonNull(leftResult)) {
             return leftResult;
+        }
+        else if (Objects.nonNull(rightResult)) {
+            return rightResult;
         }
         else {
             return null;
