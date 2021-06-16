@@ -4,10 +4,13 @@ import java.util.Arrays;
 
 public class UnionFind {
 	private final int[] parent;
+	private final int[] rank; // level or depth
 
 	public UnionFind(int size) {
 		parent = new int[size];
+		rank = new int[size];
 		Arrays.fill(parent, -1);
+		Arrays.fill(rank, 1);
 	}
 
 	public void union(int leftIndex, int rightIndex) {
@@ -27,6 +30,31 @@ public class UnionFind {
 		parent[leftRootIndex] += parent[rightRootIndex];
 		parent[rightRootIndex] = leftRootIndex;
 	}
+
+	@Deprecated
+	private void unionByRank(int leftIndex, int rightIndex) {
+		int leftRootIndex = find(leftIndex);
+		int rightRootIndex = find(rightIndex);
+
+		if (leftRootIndex == rightRootIndex) {
+			return;
+		}
+
+		if (rank[leftRootIndex] < rank[rightRootIndex]) {
+			leftRootIndex ^= rightRootIndex;
+			rightRootIndex ^= leftRootIndex;
+			leftRootIndex ^= rightRootIndex;
+		}
+
+		parent[leftRootIndex] += parent[rightRootIndex];
+		parent[rightRootIndex] = leftRootIndex;
+
+		if (rank[leftRootIndex] == rank[rightRootIndex]) {
+			rank[leftRootIndex]++;
+		}
+	}
+
+
 
 	public int find(int index) {
 		return findByRecursive(index);
