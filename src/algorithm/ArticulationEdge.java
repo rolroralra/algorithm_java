@@ -27,29 +27,31 @@ public class ArticulationEdge {
 
     }
 
-    static int dfs(int curr, int prev){
-        visited[curr]= ++visitedCount;
+    // parent -> node   edge
+    // 자신 노드 주변 가장 빠른 방문 순서
+    static int dfs(int currIndex, int prevIndex){
+        visited[currIndex]= ++visitedCount;
 
-        int returnValue = visited[curr];
+        int returnValue = visited[currIndex];
 
-        for(int i = 0 ; i< (int)graph[curr].size() ; i++){
-            int next = graph[curr].get(i);
+        for(int i = 0 ; i< (int)graph[currIndex].size() ; i++){
+            int nextIndex = graph[currIndex].get(i);
 
-            if (next == prev) {
+            if (nextIndex == prevIndex) {
                 continue;
             }
 
-            if(visited[next] == 0){
+            if(visited[nextIndex] == 0){
                 //low : 정점 A의 자식 노드가 갈 수 있는 노드중 가장 일찍 방문한 노드
-                int low = dfs(next, curr);
-                if(low > visited[curr]) {
-                    cutEdgeList.add(new Edge(Math.min(curr, next), Math.max(curr, next), 0));
+                int low = dfs(nextIndex, currIndex);
+                if(low > visited[currIndex]) {
+                    cutEdgeList.add(new Edge(Math.min(currIndex, nextIndex), Math.max(currIndex, nextIndex), 0));
                 }
 
                 returnValue = Math.min(returnValue, low);
             }
             else {
-                returnValue = Math.min(returnValue, visited[next]);
+                returnValue = Math.min(returnValue, visited[nextIndex]);
             }
         }
 
