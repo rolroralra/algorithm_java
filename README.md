@@ -218,7 +218,9 @@ https://ko.wikipedia.org/wiki/%EC%84%9C%EB%A1%9C%EC%86%8C_%EC%A7%91%ED%95%A9_%EC
 2. Prim's Algorithm
 
 ## 단절점, 단절선 (Articulation Point, Articulation Edge)
-https://bowbowbow.tistory.com/3
+- https://bowbowbow.tistory.com/3
+- [ArticulationPoint.java](./src/algorithm/ArticulationPoint.java)
+- [ArticulationEdge.java](./src/algorithm/ArticulationEdge.java)
 
 ## Line Sweeping, Plane Sweeping
 [https://www.acmicpc.net/problem/2170](https://www.acmicpc.net/problem/2170)
