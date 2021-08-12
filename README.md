@@ -171,14 +171,16 @@ https://dyngina.tistory.com/16
 ---
 
 ## Binary Index Tree
-https://dyngina.tistory.com/14
+- https://dyngina.tistory.com/14
+- [Sample Code](./src/algorithm/BinaryIndexTree.java)
 
 ## Segment Tree
-https://www.acmicpc.net/blog/view/9
-
+- https://www.acmicpc.net/blog/view/9
+- [Sample Code](./src/algorithm/SegmentTree.java)
 
 ## Fenwick Tree
-https://www.acmicpc.net/blog/view/21
+- https://www.acmicpc.net/blog/view/21
+- [Sample Code](./src/algorithm/FenwickTree.java)
 
 ---
 
