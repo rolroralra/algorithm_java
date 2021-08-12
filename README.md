@@ -177,6 +177,8 @@ https://dyngina.tistory.com/16
 ## Segment Tree
 - https://www.acmicpc.net/blog/view/9
 - [Sample Code](./src/algorithm/SegmentTree.java)
+- [SegmentSumTree](./src/algorithm/SegmentSumTree.java)
+- [SegmentMaxTree](./src/algorithm/SegmentMaxTree.java)
 
 ## Fenwick Tree
 - https://www.acmicpc.net/blog/view/21
