@@ -228,40 +228,8 @@ https://dyngina.tistory.com/16
 ## Line Sweeping, Plane Sweeping
 [https://www.acmicpc.net/problem/2170](https://www.acmicpc.net/problem/2170)
 
----
-
-
-
-# Day-01
-- 기출P-0063 Pac Man
-- 기출P-0042 배제쌍
-- 기출P-0034 팀짜기
-- 기출P-0067 가장 큰 최단 경로
-
-# Day-02
-- 교육P-0035 이진 탐색2     -- DP
-- 기출P-0023 운동하자       -- DP
-- 기출P-0054 자동차 여행    -- DP
-- 기출P-0017 직사각형 개수세기 -- DP
-
-# Day-03
-- 기출P-0036 워드프로세서 고장     -- DP
-- 기출P-0048 도둑잡기             -- 위상정렬 (Topology Sort)
-- 기출P-0050 모든 쌍의 최단경로    -- Graph, 사이클 찾기
-- 사전A-0032 타일 붙이기          -- 경우의 수, DP     (과제!!)
-
-# Day-04
-- 기출P-0038 키컸으면    -- 구간트리 (Segment Tree)
-- 기출P-0056 수열지우기  -- LIS (Longest Increasing Subsequence)
-- 연습P-0025 등산        -- Parametric Search (Binary Search)
-- 기출P-0007 팀 구성     -- DP
-
-# Day-05
-- 기출P-0058 탱크         -- 구간트리
-- 기출P-0065 Shields Up!  -- Dijkstra, 위상정렬
-- 기출P-0039 개미 굴 파기  -- MST 최소신장트리
-      (1. Prim's 2. Kruskal), LCA(Lowest Common Ancesotr), 단절점 단절선
-- 기출P-0018 종이컵 전화기 -- DP
+## LowerBound, UpperBound (wrt BinarySearch)
+- [Sample Code](./src/algorithm/LowerBound_UpperBound.java)
 
 ---
 
