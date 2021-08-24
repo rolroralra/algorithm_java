@@ -180,10 +180,12 @@ https://dyngina.tistory.com/16
 - [Sample Code](./src/algorithm/SegmentTree.java)
 - [SegmentSumTree](./src/algorithm/SegmentSumTree.java)
 - [SegmentMaxTree](./src/algorithm/SegmentMaxTree.java)
+- [Lazy Propagation](https://www.acmicpc.net/blog/view/26)
 
 ## Fenwick Tree
 - https://www.acmicpc.net/blog/view/21
 - [Sample Code](./src/algorithm/FenwickTree.java)
+
 
 ---
 
