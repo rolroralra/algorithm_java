@@ -181,6 +181,7 @@ https://dyngina.tistory.com/16
 - [SegmentSumTree](./src/algorithm/SegmentSumTree.java)
 - [SegmentMaxTree](./src/algorithm/SegmentMaxTree.java)
 - [Lazy Propagation](https://www.acmicpc.net/blog/view/26)
+- [Lazy Propagation2](https://rebro.kr/94)
 
 ## Fenwick Tree
 - https://www.acmicpc.net/blog/view/21
