@@ -18,9 +18,9 @@ public class LCA_logN {
 		
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		N = Integer.parseInt(st.nextToken());
-		list = new ArrayList<ArrayList<Integer>>();
+		list = new ArrayList<>();
 		for (int i = 0; i < N; i++) {
-			list.add(new ArrayList<Integer>());
+			list.add(new ArrayList<>());
 		}
 		
 		for (int i = 0; i < N - 1; i++) {
@@ -39,7 +39,7 @@ public class LCA_logN {
 		}
 		depth = new int[N];
 		
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 		depth[0] = 1;
 		stack.push(0);
 		

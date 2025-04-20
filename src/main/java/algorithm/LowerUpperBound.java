@@ -10,11 +10,23 @@ public class LowerUpperBound {
 	 * @param <T> the type of elements in the list, which must implement Comparable
 	 * @param list the sorted list
 	 * @param target the target value
-	 *
 	 * @return the index of the first element greater than or equal to the target
 	 */
 	public static <T extends Comparable<T>> int lowerBound(List<T> list, T target) {
 		return lowerBound(list, target, 0, list.size(), Comparator.naturalOrder());
+	}
+
+	/**
+	 * Returns the index of the first element greater than or equal to the given target in the sorted list.
+	 *
+	 * @param <T> the type of elements in the list, which must implement Comparable
+	 * @param list the sorted list
+	 * @param target the target value
+	 * @param comparator the comparator to compare elements
+	 * @return the index of the first element greater than or equal to the target
+	 */
+	public static <T> int lowerBound(List<T> list, T target, Comparator<? super T> comparator) {
+		return lowerBound(list, target, 0, list.size(), comparator);
 	}
 
 	/**
@@ -56,6 +68,19 @@ public class LowerUpperBound {
 	 */
 	public static <T extends Comparable<T>> int upperBound(List<T> list, T target) {
 		return upperBound(list, target, 0, list.size(), Comparator.naturalOrder());
+	}
+
+	/**
+	 * Returns the index of the first element strictly greater than the given target in the sorted list.
+	 *
+	 * @param <T> the type of elements in the list, which must implement Comparable
+	 * @param list the sorted list
+	 * @param target the target value
+	 * @param comparator the comparator to compare elements
+	 * @return the index of the last element strictly greater than the target
+	 */
+	public static <T extends Comparable<T>> int upperBound(List<T> list, T target, Comparator<? super T> comparator) {
+		return upperBound(list, target, 0, list.size(), comparator);
 	}
 
 	/**
