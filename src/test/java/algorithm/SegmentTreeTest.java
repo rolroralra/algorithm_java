@@ -42,7 +42,6 @@ class SegmentTreeTest {
         assertEquals(23, segmentTree.query(4, 7));
         segmentTree.update(7, 1);
         assertEquals(29, segmentTree.query(0, 7));
-
     }
 
     @Test
@@ -50,6 +49,6 @@ class SegmentTreeTest {
         assertEquals(10, segmentTree.query(0, 3));
         assertEquals(26, segmentTree.query(4, 7));
         assertEquals(36, segmentTree.query(0, 7));
-        assertEquals(null, segmentTree.query(8, 9));
+        assertNull(segmentTree.query(8, 9));
     }
 }

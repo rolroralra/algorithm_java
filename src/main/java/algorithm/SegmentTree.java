@@ -20,6 +20,18 @@ public class SegmentTree<T> {
     private final int originDataSize;
     private final BinaryOperator<T> accumulator;
 
+    static class Node<T> {
+        private T value;
+        private int leftIndex;
+        private int rightIndex;
+
+        public Node(T value, int leftIndex, int rightIndex) {
+            this.value = value;
+            this.leftIndex = leftIndex;
+            this.rightIndex = rightIndex;
+        }
+    }
+
     /**
      * Constructor for SegmentTree
      *
@@ -137,9 +149,11 @@ public class SegmentTree<T> {
         int leftNode = (node << 1) + 1;
         int rightNode = leftNode + 1;
 
+        // Update the left and right child nodes
         updateByValue(index, value,  leftNode, nodeLeft, nodeMid);
         updateByValue(index, value, rightNode, nodeMid + 1, nodeRight);
 
+        // Post order traversal
         if (Objects.nonNull(nodeTree[leftNode]) && Objects.nonNull(nodeTree[rightNode])) {
             nodeTree[node] = accumulator.apply(nodeTree[leftNode], nodeTree[rightNode]);
         }
