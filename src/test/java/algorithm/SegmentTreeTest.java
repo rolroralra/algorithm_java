@@ -3,6 +3,7 @@ package algorithm;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class SegmentTreeTest {
@@ -15,6 +16,7 @@ class SegmentTreeTest {
         }, Integer::sum);
     }
 
+    @DisplayName("SegmentTree::getCurrentDataArray() 테스트")
     @Test
     void getCurrentDataArray() {
         assertArrayEquals(new Integer[] {
@@ -32,6 +34,7 @@ class SegmentTreeTest {
         }, segmentTree.getCurrentDataArray());
     }
 
+    @DisplayName("SegmentTree::update(index, value) 테스트")
     @Test
     void update() {
         segmentTree.update(0, 5);
@@ -44,6 +47,7 @@ class SegmentTreeTest {
         assertEquals(29, segmentTree.query(0, 7));
     }
 
+    @DisplayName("SegmentTree::query(left, right) 테스트")
     @Test
     void query() {
         assertEquals(10, segmentTree.query(0, 3));
