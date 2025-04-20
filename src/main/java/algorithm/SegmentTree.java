@@ -3,24 +3,40 @@ package algorithm;
 import java.util.Objects;
 import java.util.function.BinaryOperator;
 
+/**
+ * Segment Tree is a data structure that allows querying the elements of an array
+ * in logarithmic time. It is useful for answering range queries, such as
+ * sum, minimum, maximum, greatest common divisor (GCD), etc.
+ *
+ * @param <T> Type of Data
+ *
+ * @author rolroralra@gmail.com
+ * @since 2021.06.15
+ */
 public class SegmentTree<T> {
-    private static final int rootNodeIndex = 0;
+    private static final int ROOT_NODE_BASE_INDEX = 0;
 
-    private final T[] tree;
+    private final T[] nodeTree;
     private final int originDataSize;
-    private final BinaryOperator<T> operator;
+    private final BinaryOperator<T> accumulator;
 
+    /**
+     * Constructor for SegmentTree
+     *
+     * @param originDataSize Size of the original data
+     * @param accumulator Function to combine two elements
+     */
     @SuppressWarnings("unchecked")
-    public SegmentTree(int originDataSize, BinaryOperator<T> operator) throws Exception {
+    public SegmentTree(int originDataSize, BinaryOperator<T> accumulator) {
         if (originDataSize <= 0) {
-            throw new Exception("Origin Data Size must be positive!");
+            throw new RuntimeException("Origin Data Size must be positive!");
         }
 
-        if (operator == null) {
-            throw new Exception("Operator should not null.");
+        if (accumulator == null) {
+            throw new RuntimeException("Operator should not null.");
         }
 
-        this.operator = operator;
+        this.accumulator = accumulator;
 
         this.originDataSize = originDataSize;
 
@@ -30,18 +46,65 @@ public class SegmentTree<T> {
 
         segmentTreeSize = (segmentTreeSize << 1) - 1;
 
-        this.tree = (T[]) new Object[segmentTreeSize];
+        this.nodeTree = (T[]) new Object[segmentTreeSize];
     }
 
-    public SegmentTree(T[] originDataArray, BinaryOperator<T> operator) throws Exception {
-        this(originDataArray.length, operator);
+    /**
+     * Constructor for SegmentTree
+     *
+     * @param originDataArray Original data array
+     * @param accumulator Function to combine two elements
+     */
+    public SegmentTree(T[] originDataArray, BinaryOperator<T> accumulator) {
+        this(originDataArray.length, accumulator);
         this.init(originDataArray);
     }
 
-    private void init(T[] originDataArray) throws Exception {
+    /**
+     * Get current data array
+     *
+     * @return Current data array
+     */
+    @SuppressWarnings("unchecked")
+    public T[] getCurrentDataArray() {
+        T[] result = (T[]) new Object[originDataSize];
+
+        System.arraycopy(nodeTree, (nodeTree.length + 1) / 2 - 1, result, 0, originDataSize);
+
+        return result;
+    }
+
+    /**
+     * Update the value at the specified index
+     *
+     * @param index 0-based index of the value to update
+     * @param value updated value
+     */
+    public void update(int index, T value) {
+        this.updateByValue(index, value, ROOT_NODE_BASE_INDEX, 0, this.originDataSize - 1 );
+    }
+
+    /**
+     * Query the value in the range [left, right]
+     *
+     * @param left left index of the range (inclusive)
+     * @param right right index of the range (inclusive)
+     * @return result of the query, or null if not found
+     */
+    // left , right   0-base index
+    public T query(int left, int right) {
+        return this.query(left, right, ROOT_NODE_BASE_INDEX, 0, this.originDataSize - 1);
+    }
+
+    /**
+     * Initialize the segment tree with the original data array
+     *
+     * @param originDataArray Original data array
+     */
+    private void init(T[] originDataArray) {
         if (originDataArray.length > this.originDataSize) {
-            throw new Exception(
-                    "Input Data size is overflow! (Input Data Size : " + originDataArray.length +
+            throw new RuntimeException(
+                "Input Data size is overflow! (Input Data Size : " + originDataArray.length +
                     ", Current Data Size : " + this.originDataSize + ")");
         }
 
@@ -50,15 +113,15 @@ public class SegmentTree<T> {
         }
     }
 
-    public void update(int index, T value) {
-        this.updateByValue(index, value, rootNodeIndex, 0, this.originDataSize - 1 );
-    }
-
-    // left , right   0-base index
-    public T query(int left, int right) {
-        return this.query(left, right, rootNodeIndex, 0, this.originDataSize - 1);
-    }
-
+    /**
+     * Update the value at the specified index
+     *
+     * @param index 0-based index of the value to update
+     * @param value updated value
+     * @param node current node index
+     * @param nodeLeft left index of the current node
+     * @param nodeRight right index of the current node
+     */
     private void updateByValue(int index, T value, int node, int nodeLeft, int nodeRight) {
         // Escaping Condition : index is not in segment [nodeLeft, nodeRight]
         if (index < nodeLeft || nodeRight < index) {
@@ -66,7 +129,7 @@ public class SegmentTree<T> {
         }
 
         if (nodeLeft == nodeRight) {
-            tree[node] = value;
+            nodeTree[node] = value;
             return;
         }
 
@@ -77,30 +140,36 @@ public class SegmentTree<T> {
         updateByValue(index, value,  leftNode, nodeLeft, nodeMid);
         updateByValue(index, value, rightNode, nodeMid + 1, nodeRight);
 
-        if (Objects.nonNull(tree[leftNode]) && Objects.nonNull(tree[rightNode])) {
-            tree[node] = operator.apply(tree[leftNode], tree[rightNode]);
+        if (Objects.nonNull(nodeTree[leftNode]) && Objects.nonNull(nodeTree[rightNode])) {
+            nodeTree[node] = accumulator.apply(nodeTree[leftNode], nodeTree[rightNode]);
         }
-        else if (Objects.nonNull(tree[leftNode])) {
-            tree[node] = tree[leftNode];
+        else if (Objects.nonNull(nodeTree[leftNode])) {
+            nodeTree[node] = nodeTree[leftNode];
         }
-        else if (Objects.nonNull(tree[rightNode])) {
-            tree[node] = tree[rightNode];
+        else if (Objects.nonNull(nodeTree[rightNode])) {
+            nodeTree[node] = nodeTree[rightNode];
         }
     }
 
-    // left : left Index of Query Range
-    // right : right index of Query Range
+    /**
+     * Query the value in the range [left, right]
+     *
+     * @param left left index of the range (inclusive)
+     * @param right right index of the range (inclusive)
+     * @param node current node index
+     * @param nodeLeft left index of the current node
+     * @param nodeRight right index of the current node
+     * @return result of the query, or null if not found
+     */
     private T query(int left, int right, int node, int nodeLeft, int nodeRight) {
         // [left, right] is not in [nodeLeft, nodeRight]
         if (left > nodeRight || right < nodeLeft) {
             return null;
-            // return 0;
-            // return Integer.MIN_VALUE;
         }
 
         // [left ... [nodeLeft ... nodeRight] ... right]
         if (left <= nodeLeft && nodeRight <= right) {
-            return this.tree[node];
+            return this.nodeTree[node];
         }
 
         // Divide & Conquer
@@ -112,7 +181,7 @@ public class SegmentTree<T> {
         T rightResult = query(left, right, rightNode, nodeMid + 1, nodeRight);
 
         if (Objects.nonNull(leftResult) && Objects.nonNull(rightResult)) {
-            return operator.apply(leftResult, rightResult);
+            return accumulator.apply(leftResult, rightResult);
         }
         else if (Objects.nonNull(leftResult)) {
             return leftResult;
