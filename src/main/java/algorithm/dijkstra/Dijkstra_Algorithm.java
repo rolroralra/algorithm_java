@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.dijkstra;
 
 import java.util.*;
 

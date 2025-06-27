@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+import algorithm.segment.SegmentTree;
+
 /*
  * 다시 정리하면 LIS에서 고려해야 할 것은 2가지인데 일단
  * 	1. LIS에서 자신의 앞에 있는 요소가 자기보다 전부 작아야 한다는 것.

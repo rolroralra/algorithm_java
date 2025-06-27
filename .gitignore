@@ -215,3 +215,4 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,java,eclipse,maven,gradle
+.fake

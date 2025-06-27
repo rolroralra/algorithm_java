@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.segment;
 
 import java.util.Objects;
 import java.util.function.BinaryOperator;

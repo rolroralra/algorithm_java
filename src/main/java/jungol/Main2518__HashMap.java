@@ -22,7 +22,7 @@ public class Main2518__HashMap {
 		
 		for (int i = 0; i < n; i++) {
 			char c = in.next().charAt(0);
-			System.out.print((map.get(c) == null) ? c : map.get(c));
+//			System.out.print((map.get(c) == null) ? c : map.get(c));
 		}
 	}
 }

@@ -1,7 +1,8 @@
-package algorithm;
+package algorithm.sorting;
 import java.util.Arrays;
 
 public class Sort_BubbleSort {
+	
 
 	public static void main(String[] args) {
 		int[] a = {4, 3, 1, 5, 2};

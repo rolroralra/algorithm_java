@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.segment;
 
 public class SegmentMaxTree {
     private static final int rootNodeIndex = 0;

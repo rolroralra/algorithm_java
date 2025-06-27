@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.segment;
 
 public class SegmentSumTree {
     private static final int rootNodeIndex = 0;

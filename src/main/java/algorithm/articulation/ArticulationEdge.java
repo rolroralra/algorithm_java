@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.articulation;
 
 import java.util.List;
 

@@ -11,27 +11,18 @@ public class WrapperClass {
 		System.out.println(s1 == s2);	// true
 		System.out.println(s3 == s4);	// false
 										
-							
-		
-		
-		
-		
-		
-		
-		// AutoBoxing은 Integer.valueOf(..) 함수 이용!
-		// AutoUnBoxing은 intValue() 함수 이용!
-		
+
 										// Compiler가 인식하는 코드!
 		Integer a = 128;				// Integer a = Integer.valueOf(128);
 		Integer b = 128;				// Integer b = Integer.valueOf(128);
 		Integer c = 127;				// Integer c = Integer.valueOf(127);	
 		Integer d = 127;				// Integer d = Integer.valueOf(127);
-		Integer e = new Integer(127);	
+		Integer e = Integer.valueOf(127);
 		int f = a;						// int f = a.intValue();
 		
 		System.out.println(a == b);		// false
 		System.out.println(c == d);		// true
-		System.out.println(c == e);		// false
+		System.out.println(c == e);		// true
 		System.out.println(a == f);		// true
 		
 		//	c == d 가 false임을 통해.. AutoBoxing은 생성자 new Integer(..)로 하는 것이 아니라..

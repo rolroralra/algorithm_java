@@ -1,10 +1,9 @@
-package algorithm;
+package algorithm.dfs;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
-public class BFS {
+public class DFS {
 	public static int N;
 	public static int[][] adjMatrix;
 	public static Node[] nodes;
@@ -19,15 +18,15 @@ public class BFS {
 			nodes[i] = new Node(inputValue);	
 		}
 		
-		Queue<State> queue = new LinkedList<State>();
+		Stack<State> stack = new Stack<State>();
 		boolean[] isVisited = new boolean[N];
 		int startIndex = 0;
 		int endIndex = N - 1;
 
-		queue.add(new State(startIndex, nodes[startIndex].value));
+		stack.push(new State(startIndex, nodes[startIndex].value));
 
-		while (!queue.isEmpty()) {
-			State currState = queue.poll();
+		while (!stack.isEmpty()) {
+			State currState = stack.pop();
 			
 			int currIndex = currState.currIndex;
 			int currInfo = currState.currInfo;
@@ -35,7 +34,7 @@ public class BFS {
 			for (int nextIndex = 0; nextIndex < N; nextIndex++) {
 				if (!isVisited[nextIndex]) {
 					isVisited[nextIndex] = true;	
-					queue.add(new State(nextIndex, currInfo + nodes[currIndex].value));
+					stack.push(new State(nextIndex, currInfo + nodes[currIndex].value));
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.unionfind;
 
 import java.util.Arrays;
 

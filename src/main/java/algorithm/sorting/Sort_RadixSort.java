@@ -1,9 +1,8 @@
-package algorithm;
+package algorithm.sorting;
 import java.util.Arrays;
 
-
-// TODO: Implementation for Counting Sort
-public class Sort_CountingSort {
+// TODO: Implementation for Radix Sort
+public class Sort_RadixSort {
 	public static int cnt = 0;
 	public static void main(String[] args) {
 		int arr[] = {485,241,454,325,452,685,498,890,281};

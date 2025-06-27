@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.lca;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
